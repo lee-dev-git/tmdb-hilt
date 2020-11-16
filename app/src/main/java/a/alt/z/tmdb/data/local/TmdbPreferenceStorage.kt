@@ -1,4 +1,4 @@
-package a.alt.z.tmdb.data
+package a.alt.z.tmdb.data.local
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE

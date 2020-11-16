@@ -1,12 +1,11 @@
 package a.alt.z.tmdb.domain
 
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
-abstract class UseCase<in P, R>(private val coroutineDispatcher: CoroutineDispatcher) {
+abstract class UseCase<in P, R> {
 
     suspend operator fun invoke(parameters: P): Result<R> {
-        return try { withContext(coroutineDispatcher) { Result.Success(execute(parameters)) } }
+        return try { Result.Success(withContext(Dispatchers.IO) { execute(parameters) }) }
         catch (exception: Exception) { Result.Error(exception) }
     }
 

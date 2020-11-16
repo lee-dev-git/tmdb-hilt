@@ -1,8 +1,8 @@
-package a.alt.z.tmdb.model
+package a.alt.z.tmdb.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Response<T> (
+data class TmdbResponse<T> (
     val page: Int?,
     @SerializedName("total_results")
     val totalResults: Int?,
