@@ -1,4 +1,4 @@
-package a.alt.z.tmdb.data.local
+package a.alt.z.tmdb.data.prefs
 
 interface PreferenceStorage {
 }

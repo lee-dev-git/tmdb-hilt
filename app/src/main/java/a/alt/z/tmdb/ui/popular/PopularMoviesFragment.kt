@@ -1,4 +1,4 @@
-package a.alt.z.tmdb.ui
+package a.alt.z.tmdb.ui.popular
 
 import a.alt.z.tmdb.R
 import android.os.Bundle
@@ -15,6 +15,9 @@ class PopularMoviesFragment: Fragment(R.layout.fragment_popular_movies) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        init()
+
+        setupObserver()
     }
 
     private fun init() {

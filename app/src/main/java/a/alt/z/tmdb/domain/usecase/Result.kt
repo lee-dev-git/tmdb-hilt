@@ -1,4 +1,4 @@
-package a.alt.z.tmdb.domain
+package a.alt.z.tmdb.domain.usecase
 
 sealed class Result<out R> {
     data class Success<out T>(val data: T) : Result<T>()
