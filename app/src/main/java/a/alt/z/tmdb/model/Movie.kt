@@ -2,6 +2,8 @@ package a.alt.z.tmdb.model
 
 data class Movie(
     val id: Long,
-    val postUrl: String?,
-    val overview: String
+    val posterUrl: String?,
+    val title: String,
+    val overview: String,
+    val popularity: Double
 )

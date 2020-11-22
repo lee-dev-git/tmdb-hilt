@@ -9,13 +9,13 @@ abstract class UseCase<in P, R>(private val coroutineDispatcher: CoroutineDispat
         return try {
             withContext(coroutineDispatcher) {
                 execute(parameters).let { data ->
-                    Timber.d("${this::class.java.simpleName} has succeeded")
+                    Timber.d("${this::class.java.simpleName} executed")
                     Result.Success(data)
                 }
             }
         }
         catch (exception: Exception) {
-            Timber.d(exception, "${this::class.java.simpleName} has failed")
+            Timber.d(exception, "${this::class.java.simpleName} failed")
             Result.Error(exception)
         }
     }

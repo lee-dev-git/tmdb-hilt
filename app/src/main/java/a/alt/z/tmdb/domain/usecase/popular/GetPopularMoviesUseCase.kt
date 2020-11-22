@@ -6,16 +6,21 @@ import a.alt.z.tmdb.domain.usecase.FlowUseCase
 import a.alt.z.tmdb.domain.usecase.Result
 import a.alt.z.tmdb.domain.usecase.UseCase
 import a.alt.z.tmdb.model.Movie
+import a.alt.z.tmdb.util.debug
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class GetPopularMoviesUseCase @Inject constructor(
     private val movieRepository: MovieRepository,
     @IODispatcher coroutineDispatcher: CoroutineDispatcher
 ): FlowUseCase<Unit, List<Movie>>(coroutineDispatcher) {
 
-    override fun execute(parameters: Unit): Flow<List<Movie>> = movieRepository.popularMovies()
+    override fun execute(parameters: Unit): Flow<List<Movie>> {
+        debug { "<GetPopularMoviesUseCase.execute>" }
+        return movieRepository.popularMovies()
+                .also { debug { "</GetPopularMoviesUseCase.execute>" } }
+    }
 }
